@@ -1,0 +1,11 @@
+header {
+    display: none;
+}
+
+@media (width >= 80em) {
+    header {
+        display: initial;
+        display: flex;
+        justify-content: center;
+    }    
+}

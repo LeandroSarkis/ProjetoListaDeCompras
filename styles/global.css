@@ -3,6 +3,7 @@
     padding: 0;
 
     box-sizing: border-box;
+    font: inherit;
 }
 
 :root {
@@ -32,4 +33,9 @@
     --label: 600 1rem/1.25rem var(--font-family-inter);
     --paragraph: 400 1rem/1.25rem var(--font-family-inter);
     --link: 400 .875rem/1rem var(--font-family-inter);
+}
+
+body {
+    font-family: var(--font-family-inter);
+    background-color: var(--background-primary);
 }
