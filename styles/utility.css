@@ -8,6 +8,10 @@
     display: flex;
 }
 
+.display-initial {
+    display: initial;
+}
+
 @media (width >= 80em) {
     .container {
         width: 50%;

@@ -1,38 +1,41 @@
 const form = document.querySelector("form");
 const addItem = document.getElementById("add-item");
 const itensList = document.getElementById("itens-list");
-const formItem = document.querySelector(".item");
-let checkboxNumber = 1;
+const deleteAlert = document.getElementById("delete-alert");
+
+let itemID = 1;
 form.addEventListener("submit", (event) => {
     event.preventDefault();
-
-    checkboxNumber = createNewItem(addItem.value, checkboxNumber);
-})
-
-formItem.addEventListener("submit", (event) => {
-    event.preventDefault();
-})
-
-function createNewItem(newItem, checkboxNumber) {
-    checkboxNumber = checkboxNumber + 1;
-    const item = document.createElement("label");
-    item.textContent = newItem;
-    item.setAttribute("for", "checkbox-" + checkboxNumber);
-
-    const checkbox = document.createElement("input");
-    checkbox.classList.add("checkbox");
-    checkbox.setAttribute("id", "checkbox-"+ checkboxNumber);
-    checkbox.setAttribute("type", "checkbox");
-
-    const button = document.createElement("button");
-    button.classList.add("trash-bin");
-    button.setAttribute("type", "submit");
-
-    const newForm = document.createElement("form");
-    newForm.append(checkbox, item, button);
-    newForm.classList.add("item");
-
-    itensList.append(newForm);
     
-    return checkboxNumber;
+    itemID = createNewItem(addItem.value, itemID);
+})
+
+function createNewItem(goal, itemID) {
+    const newItem = document.createElement("div")
+    newItem.classList.add("item")
+    newItem.setAttribute("id", "item-" + itemID)
+    newItem.innerHTML = `<input type="checkbox" class="checkbox" id="checkbox-${itemID}"> <label for="checkbox-${itemID}">${goal}</label> <button type="button "class="delete-button"onclick="removeItem('${newItem.id}')"></button>` 
+
+    itensList.append(newItem);
+    itemID = itemID + 1;
+    return itemID;
+}
+
+itensList.addEventListener("submit", (event) => {
+    event.preventDefault()
+})
+
+
+function removeItem(itemID) {
+    const itemToRemove = document.getElementById(itemID)
+
+    deleteAlert.style.visibility="visible"
+
+    if(itemToRemove) {
+        itemToRemove.style.display="none"
+    }
+}
+
+function hiddenAlert() {
+    deleteAlert.style.visibility="hidden"
 }

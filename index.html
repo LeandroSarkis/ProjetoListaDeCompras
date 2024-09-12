@@ -26,10 +26,13 @@
                 <button type="submit" class="button">Adicionar item</button>
             </form>
 
-            <div id="itens-list">
-                <form class="item">
-                    <input type="checkbox" class="checkbox" id="checkbox-1"> <label for="checkbox-1">aaaaaaaa</label> <button type="submit" class="trash-bin"></button>
-                </form>
+            <form id="itens-list">
+            </form>
+
+            <div id="delete-alert">
+                <img src="Assets/icons/alert-icon.svg" alt="Sinal de alerta">
+                <p>O item foi removido da lista</p>
+                <button type="button" onclick="hiddenAlert()"><img src="Assets/icons/X.svg" alt=""></button>
             </div>
         </main>
     </div>
